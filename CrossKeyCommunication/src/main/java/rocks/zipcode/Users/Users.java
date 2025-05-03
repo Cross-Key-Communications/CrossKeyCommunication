@@ -1,19 +1,24 @@
 package rocks.zipcode.Users;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 import javax.xml.stream.events.Comment;
 import java.util.List;
 
 @Entity
+@Table(name="users")
 public class Users {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column
     private String firstName;
+    @Column
     private String lastName;
+    @Column
     private String userName;
+    @Column
     private String password;
 
-    private List<Comment> comments;
 
 
 
