@@ -1,12 +1,9 @@
-package rocks.zipcode.Users;
+package rocks.zipcode.User;
 import jakarta.persistence.*;
-
-import javax.xml.stream.events.Comment;
-import java.util.List;
 
 @Entity
 @Table(name="users")
-public class Users {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,7 +22,7 @@ public class Users {
     public void User() {
     }
 
-    public Users(Long id, String firstName, String lastName, String userName, String password) {
+    public User(Long id, String firstName, String lastName, String userName, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -72,11 +69,5 @@ public class Users {
     public void setPassword(String password) {
         this.password = password;
     }
-    public List<Comment> getComments() {
-        return comments;
-    }
 
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
-    }
 }
