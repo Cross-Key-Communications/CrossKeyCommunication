@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 public class UserController {
 
-    public UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final User userBean;
 
     @Autowired
-    public UserController(UserRepository userRepository){
-        this.userRepository=userRepository;
+    public UserController(UserRepository userRepository, User userBean) {
+        this.userRepository = userRepository;
+        this.userBean = userBean;
     }
-
     @GetMapping
     @ResponseBody
     //this is what was returning the json to the webpage
@@ -47,7 +48,7 @@ public class UserController {
                            @RequestParam(value = "profilePicture", required = false) String profilePicturePath) {
 
         // Construct user entity
-        User newUser = new User();
+        User newUser = userBean;
         newUser.setFirstName(firstName);
         newUser.setLastName(lastName);
         newUser.setUserName(userName);

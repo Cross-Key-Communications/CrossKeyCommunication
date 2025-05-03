@@ -7,8 +7,8 @@ import jakarta.persistence.Table;
 import java.awt.*;
 import java.util.Date;
 
-@Entity
-@Table(name="comments")
+//@Entity
+//@Table(name="comments")
 public class Comments {
 
     private Long id;
