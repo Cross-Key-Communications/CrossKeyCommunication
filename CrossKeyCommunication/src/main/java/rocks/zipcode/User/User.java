@@ -14,18 +14,19 @@ public class User {
     @Column
     private String userName;
     @Column
+    private String email;
+    @Column
     private String password;
 
+    public User() {
 
-
-
-    public void User() {
     }
 
-    public User(Long id, String firstName, String lastName, String userName, String password) {
+    public User(Long id, String firstName, String lastName,String email, String userName, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email=email;
         this.userName = userName;
         this.password = password;
     }
@@ -49,6 +50,9 @@ public class User {
     public String getLastName() {
         return lastName;
     }
+    public String getEmail() {return email;}
+
+    public void setEmail(String email) {this.email = email;}
 
     public void setLastName(String lastName) {
         this.lastName = lastName;

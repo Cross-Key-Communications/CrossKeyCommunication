@@ -36,4 +36,28 @@ public class UserController {
         User savedUser = userRepository.save(user);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
+    @PostMapping("/save")
+    public String saveUser(@RequestParam("firstName") String firstName,
+                           @RequestParam("lastName") String lastName,
+                           @RequestParam("userName") String userName,
+                           @RequestParam("birthDay") String birthDay,
+                           @RequestParam("email") String email,
+                           @RequestParam("password") String password,
+                           @RequestParam("profileDescription") String profileDescription,
+                           @RequestParam(value = "profilePicture", required = false) String profilePicturePath) {
+
+        // Construct user entity
+        User newUser = new User();
+        newUser.setFirstName(firstName);
+        newUser.setLastName(lastName);
+        newUser.setUserName(userName);
+        newUser.setEmail(email);
+        newUser.setPassword(password);
+
+        // Persist user
+        userRepository.save(newUser);
+
+        // Redirect to homepage
+        return "redirect:/";
+    }
 }
