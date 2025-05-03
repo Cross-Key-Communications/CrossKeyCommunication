@@ -1,10 +1,14 @@
 package rocks.zipcode.Comments;
 
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
 import java.awt.*;
 import java.util.Date;
 
-
+@Entity
+@Table(name="comments")
 public class Comments {
 
     private Long id;
