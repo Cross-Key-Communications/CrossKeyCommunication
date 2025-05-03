@@ -1,8 +1,10 @@
 package rocks.zipcode.Users;
+import jakarta.persistence.Entity;
 
 import javax.xml.stream.events.Comment;
 import java.util.List;
 
+@Entity
 public class Users {
 
     private Long id;
