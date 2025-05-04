@@ -1,31 +1,41 @@
 package rocks.zipcode.Comments;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import rocks.zipcode.Articles.Articles;
+import rocks.zipcode.User.User;
 
 import java.awt.*;
 import java.util.Date;
 
-//@Entity
-//@Table(name="comments")
+@Entity
+@Table(name="comments")
 public class Comments {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Comment_Id")
     private Long id;
-    private String articleId;
+    @Column(name = "articleId")
+    private Articles articleId;
+    @Column(name = "text")
     private String text;
+    @Column(name = "datePosted")
     private Date datePosted;
+    @Column(name = "userId")
+    private User userId;
+
 
 
 
 
     public Comments() {}
 
-    public void Comments(Long id, String articleId, String userId, String text, Date datePosted) {
+    public void Comments(Long id, Articles articleId, User userId, String text, Date datePosted) {
         this.id = id;
         this.articleId = articleId;
         this.text = text;
         this.datePosted = datePosted;
+        this.userId=userId;
     }
 
 
@@ -38,19 +48,17 @@ public class Comments {
         this.id = id;
     }
 
-    public String getArticleId() {
+    public Articles getArticleId() {
         return articleId;
     }
 
-    public void setArticleId(String articleId) {
+    public void setArticleId(Articles articleId) {
         this.articleId = articleId;
     }
 
-//    public Users getUserId() {
-//        return users;
-//    }
+    public void setUserId(User userId){this.userId=userId;}
 
-
+    public User getUserId(){return userId;}
 
     public String getText() {
         return text;
