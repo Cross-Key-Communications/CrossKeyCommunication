@@ -34,7 +34,7 @@ public ResponseEntity<Iterable<Category>> index(){
         return new ResponseEntity<>(service.create(category), HttpStatus.OK);
 }
 @PutMapping(value = "/category/{id}")
-    public ResponseEntity<Category> update(PathVariable Long id, @RequestBody Category category ) {
+    public ResponseEntity<Category> update(@PathVariable Long id, @RequestBody Category category ) {
 return new ResponseEntity<>(service.update(id, category), HttpStatus.OK);
 }
 @DeleteMapping(value = "/category/{id}")

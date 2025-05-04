@@ -17,17 +17,27 @@ public class CategoryService {
 
 
     public Iterable<Category> index() {
-        return Repository.findAll();
+        return repository.findAll();
     }
 
     public Category show(Long id) {
-        return repositroy.findById(id).get();
+        return repository.findById(id).get();
     }
 
     public Category create(Category category) {
         return repository.save(category);
     }
 
+public Category update (Long id, Category newCategoryData) {
+        Category originalCategory = repository.findById(id).get();
+    originalCategory.setName(newCategoryData.getName());
+    originalCategory.setId(newCategoryData.getId());
+    return repository.save(originalCategory);
+}
 
+public Boolean delete(Long id){
+        repository.deleteById(id);
+        return true;
+}
 
 }
