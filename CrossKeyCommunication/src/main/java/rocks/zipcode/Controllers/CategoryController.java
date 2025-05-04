@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import rocks.zipcode.Category.Category;
 import rocks.zipcode.Service.CategoryService;
 
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+//import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @Controller
 public class CategoryController {
