@@ -43,9 +43,7 @@ public class UserController {
                            @RequestParam("userName") String userName,
                            @RequestParam("birthDay") String birthDay,
                            @RequestParam("email") String email,
-                           @RequestParam("password") String password,
-                           @RequestParam("profileDescription") String profileDescription,
-                           @RequestParam(value = "profilePicture", required = false) String profilePicturePath) {
+                           @RequestParam("password") String password){
 
         // Construct user entity
         User newUser = userBean;

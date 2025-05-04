@@ -15,14 +15,21 @@ public class Comments {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Comment_Id")
     private Long id;
-    @Column(name = "articleId")
-    private Articles articleId;
+
+    @ManyToOne
+    @JoinColumn(name="article_id")
+    private Articles article;
+
     @Column(name = "text")
     private String text;
+
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "datePosted")
     private Date datePosted;
-    @Column(name = "userId")
-    private User userId;
+
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private User user;
 
 
 
@@ -30,12 +37,12 @@ public class Comments {
 
     public Comments() {}
 
-    public void Comments(Long id, Articles articleId, User userId, String text, Date datePosted) {
+    public void Comments(Long id, Articles article, User user, String text, Date datePosted) {
         this.id = id;
-        this.articleId = articleId;
+        this.article = article;
         this.text = text;
         this.datePosted = datePosted;
-        this.userId=userId;
+        this.user=user;
     }
 
 
@@ -49,16 +56,16 @@ public class Comments {
     }
 
     public Articles getArticleId() {
-        return articleId;
+        return article;
     }
 
-    public void setArticleId(Articles articleId) {
-        this.articleId = articleId;
+    public void setArticleId(Articles article) {
+        this.article = article;
     }
 
-    public void setUserId(User userId){this.userId=userId;}
+    public void setUser(User user){this.user=user;}
 
-    public User getUserId(){return userId;}
+    public User getUser(){return user;}
 
     public String getText() {
         return text;
