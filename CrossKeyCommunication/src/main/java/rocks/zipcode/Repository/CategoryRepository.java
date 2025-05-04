@@ -1,6 +1,11 @@
 package rocks.zipcode.Repository;
 
-public class CategoryRepository {
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+import rocks.zipcode.Category.Category;
+
+@Repository
+public interface CategoryRepository extends CrudRepository <Category, Long> {
 
 
 
