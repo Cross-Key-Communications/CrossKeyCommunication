@@ -1,7 +1,7 @@
 package rocks.zipcode.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+//import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import rocks.zipcode.Category.Category;
 import rocks.zipcode.Repository.CategoryRepository;
@@ -9,34 +9,35 @@ import rocks.zipcode.Repository.CategoryRepository;
 @Service
 public class CategoryService {
 
-    private CategoryRepository repository;
     @Autowired
-    public CategoryService(CategoryRepository repository){
-        this.repository = repository;
+    private CategoryRepository categoryRepository;
+
+    public CategoryService(CategoryRepository categoryRepository){
+        this.categoryRepository = categoryRepository;
     }
 
 
-    public Iterable<Category> index() {
-        return repository.findAll();
-    }
+    public Iterable<Category> getAll() {
+        return categoryRepository.findAll();
+        }
 
     public Category show(Long id) {
-        return repository.findById(id).get();
+        return categoryRepository.findById(id).get();
     }
 
     public Category create(Category category) {
-        return repository.save(category);
+        return categoryRepository.save(category);
     }
 
-public Category update (Long id, Category newCategoryData) {
-        Category originalCategory = repository.findById(id).get();
-    originalCategory.setName(newCategoryData.getName());
-    originalCategory.setId(newCategoryData.getId());
-    return repository.save(originalCategory);
+public Category update (Long id, Category newCategory) {
+        Category originalCategory = categoryRepository.findById(id).get();
+    originalCategory.setName(newCategory.getName());
+    originalCategory.setId(newCategory.getId());
+    return categoryRepository.save(originalCategory);
 }
 
 public Boolean delete(Long id){
-        repository.deleteById(id);
+    categoryRepository.deleteById(id);
         return true;
 }
 

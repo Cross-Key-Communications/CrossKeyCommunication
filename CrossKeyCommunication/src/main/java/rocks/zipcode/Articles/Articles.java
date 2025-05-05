@@ -1,6 +1,15 @@
 package rocks.zipcode.Articles;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Articles {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String title;
     String author;
